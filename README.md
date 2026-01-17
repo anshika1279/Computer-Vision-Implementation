@@ -9,6 +9,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Modules & Implementations](#modules--implementations)
 - [Notebook: Image Processing & Digits Classification](#notebook-image-processing--digits-classification)
 - [Notebook: Shape and Image Transformations](#notebook-shape-and-image-transformations)
+- [Notebook: Edge Detection and Image Segmentation](#notebook-edge-detection-and-image-segmentation)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -62,6 +63,7 @@ pip install -r requirements.txt
 - requirements.txt: Python dependencies for all notebooks.
 - image_processing_and_digits_classification.ipynb: Image resizing/blur demo plus digits classification with multiple models.
 - ShapeAndImageTransformations.ipynb: Shape and image transformation examples.
+- edge_detection_and_image_segmentation.ipynb: Edge detection operators and image segmentation techniques.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -77,3 +79,18 @@ pip install -r requirements.txt
 - Part 1: 2D rectangle transformations (translate, scale, rotate, reflect, shear, composite) visualized with Matplotlib.
 - Part 2: Image transformations on `input.jpg` using OpenCV (translate, reflect, rotate, scale, crop, shear on x/y) with side-by-side plots.
 - Part 3: Additional 2D shape transformations with reusable helpers for translate/scale/rotate/reflect/shear and composite examples.
+
+## Notebook: Edge Detection and Image Segmentation
+- File: edge_detection_and_image_segmentation.ipynb
+- **Edge Detection**: Implements multiple edge detection operators including:
+  - Sobel operator (combined X and Y gradients)
+  - Prewitt edge detection
+  - Roberts cross operator
+  - Canny edge detector
+- **Image Segmentation**: Demonstrates various segmentation techniques:
+  - Global thresholding (fixed threshold binarization)
+  - Adaptive thresholding (local neighborhood-based)
+  - Watershed segmentation with morphological operations
+- **Preprocessing**: Includes color space conversions (BGR→RGB→Grayscale→Binary) and image metrics calculation
+- **Visualization**: Displays all results in a comprehensive grid layout with labeled subplots
+- **Outputs**: Saves processed images (edge maps, segmented regions) for further analysis
