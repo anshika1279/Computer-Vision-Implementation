@@ -10,6 +10,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Image Processing & Digits Classification](#notebook-image-processing--digits-classification)
 - [Notebook: Shape and Image Transformations](#notebook-shape-and-image-transformations)
 - [Notebook: Edge Detection and Image Segmentation](#notebook-edge-detection-and-image-segmentation)
+- [Notebook: Histogram Analysis, Equalization & DFT](#notebook-histogram-analysis-equalization--dft)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -64,6 +65,7 @@ pip install -r requirements.txt
 - image_processing_and_digits_classification.ipynb: Image resizing/blur demo plus digits classification with multiple models.
 - ShapeAndImageTransformations.ipynb: Shape and image transformation examples.
 - edge_detection_and_image_segmentation.ipynb: Edge detection operators and image segmentation techniques.
+- Histogram_Analysis_Equalization_DFT.ipynb: Histogram analysis, contrast enhancement, and frequency domain transformations.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -94,3 +96,20 @@ pip install -r requirements.txt
 - **Preprocessing**: Includes color space conversions (BGR→RGB→Grayscale→Binary) and image metrics calculation
 - **Visualization**: Displays all results in a comprehensive grid layout with labeled subplots
 - **Outputs**: Saves processed images (edge maps, segmented regions) for further analysis
+
+## Notebook: Histogram Analysis, Equalization & DFT
+- File: Histogram_Analysis_Equalization_DFT.ipynb
+- **Histogram Analysis**: Computes and plots histograms for both grayscale and color (RGB) images
+  - Individual channel histograms for color images (B, G, R)
+  - Histogram normalization to probability distributions
+  - Visualization with matplotlib for histogram analysis
+- **Contrast Enhancement**: Implements histogram equalization for improving image contrast
+  - Before/after comparison of grayscale images
+  - Visual quality assessment with text annotations
+  - Side-by-side display of original and equalized images
+- **Discrete Fourier Transform (DFT)**: Frequency domain analysis and transformations
+  - DFT computation with magnitude spectrum visualization
+  - Inverse DFT for image reconstruction
+  - Rotation property verification (45° rotation test)
+  - Demonstrates spatial vs. frequency domain correspondence
+- **Compatible with Google Colab**: Uses `cv2_imshow` for Colab environments
