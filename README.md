@@ -11,7 +11,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Shape and Image Transformations](#notebook-shape-and-image-transformations)
 - [Notebook: Edge Detection and Image Segmentation](#notebook-edge-detection-and-image-segmentation)
 - [Notebook: Histogram Analysis, Equalization & DFT](#notebook-histogram-analysis-equalization--dft)
-- [Notebook: Image Compression & Deep Learning Classification (Lab 05)](#notebook-image-compression--deep-learning-classification-lab-05)
+- [Notebook: Image Compression & Deep Learning Classification ](#notebook-image-compression--deep-learning-classification)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
