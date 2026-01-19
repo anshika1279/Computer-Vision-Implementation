@@ -113,3 +113,22 @@ pip install -r requirements.txt
   - Rotation property verification (45° rotation test)
   - Demonstrates spatial vs. frequency domain correspondence
 - **Compatible with Google Colab**: Uses `cv2_imshow` for Colab environments
+## Notebook: Image Compression & Deep Learning Classification (Lab 05)
+- File: e22cseu0921_computer_vision_lab05.ipynb
+- **DCT-Based Image Compression**: Implements both lossy and lossless compression techniques
+  - Lossy compression with quantization using JPEG standard quantization matrix
+  - Lossless compression preserving all DCT coefficients
+  - Block-wise DCT/IDCT operations (8×8 blocks)
+  - Compression ratio analysis and file size comparison
+- **MNIST Digit Classification**: CNN implementations for handwritten digit recognition
+  - Basic 3-layer CNN architecture
+  - Enhanced CNN with BatchNormalization, Dropout, and L2 regularization
+  - Data augmentation (rotation, shifts, zoom)
+  - Learning rate scheduling and early stopping
+- **CIFAR-10 Classification**: Color image classification with CNN
+  - 10-class object recognition on 32×32 color images
+  - Similar architecture adapted for RGB inputs
+- **Model Evaluation**: Comprehensive performance metrics
+  - Classification reports with precision, recall, F1-score
+  - Confusion matrices with heatmap visualization
+  - ROC curves and AUC scores
