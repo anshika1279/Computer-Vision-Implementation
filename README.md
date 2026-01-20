@@ -12,6 +12,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Edge Detection and Image Segmentation](#notebook-edge-detection-and-image-segmentation)
 - [Notebook: Histogram Analysis, Equalization & DFT](#notebook-histogram-analysis-equalization--dft)
 - [Notebook: Image Compression & Deep Learning Classification ](#notebook-image-compression--deep-learning-classification)
+- [Notebook: Segmentation, Detection & Classification](#notebook-segmentation-detection--classification)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -67,6 +68,8 @@ pip install -r requirements.txt
 - ShapeAndImageTransformations.ipynb: Shape and image transformation examples.
 - edge_detection_and_image_segmentation.ipynb: Edge detection operators and image segmentation techniques.
 - Histogram_Analysis_Equalization_DFT.ipynb: Histogram analysis, contrast enhancement, and frequency domain transformations.
+- image_compression_techniques_DCT_Deep_learning_image_classification.ipynb: DCT compression and CNN-based digit/object classification.
+- segmentation_detection_classification.ipynb: Advanced CV pipeline with edge/region segmentation, Hough transform, YOLO/R-CNN detection, and Fashion-MNIST/CIFAR-100 classification.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -133,3 +136,27 @@ pip install -r requirements.txt
   - Classification reports with precision, recall, F1-score
   - Confusion matrices with heatmap visualization
   - ROC curves and AUC scores
+
+## Notebook: Segmentation, Detection & Classification
+- File: segmentation_detection_classification.ipynb
+- **Image Segmentation**: Multiple segmentation approaches
+  - Edge-based segmentation using Canny edge detection
+  - Region-based segmentation with thresholding techniques
+  - Visualization with matplotlib for result comparison
+- **Hough Transform**: Line detection and feature extraction
+  - Probabilistic Hough Line Transform for straight line detection
+  - Configurable parameters for line detection sensitivity
+  - Visual overlay of detected lines on original images
+- **Object Detection**: State-of-the-art detection models
+  - **YOLOv8**: Real-time object detection with ultralytics framework
+  - **Faster R-CNN**: Region-based detection with ResNet50-FPN backbone
+  - Bounding box visualization with confidence scores
+  - Pre-trained models on COCO dataset for 80+ object classes
+- **Deep Learning Classification**: Multi-dataset CNN training
+  - **Fashion-MNIST**: Clothing classification (10 classes, 28×28 grayscale)
+  - **CIFAR-100**: Fine-grained object classification (100 classes, 32×32 RGB)
+  - Custom CNN architectures with Conv2D, MaxPooling, and Dense layers
+  - 5-epoch training with validation accuracy tracking
+  - Classification reports with precision, recall, and F1-scores
+- **Integrated Pipeline**: End-to-end processing workflow combining segmentation, detection, and classification
+- **Dual Environment Support**: Compatible with both local (matplotlib) and Google Colab (cv2_imshow) environments
