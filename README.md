@@ -13,6 +13,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Histogram Analysis, Equalization & DFT](#notebook-histogram-analysis-equalization--dft)
 - [Notebook: Image Compression & Deep Learning Classification ](#notebook-image-compression--deep-learning-classification)
 - [Notebook: Segmentation, Detection & Classification](#notebook-segmentation-detection--classification)
+- [Notebook: Blob Detection, Image Enhancement & Classification](#notebook-blob-detection-image-enhancement--classification)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -70,6 +71,7 @@ pip install -r requirements.txt
 - Histogram_Analysis_Equalization_DFT.ipynb: Histogram analysis, contrast enhancement, and frequency domain transformations.
 - image_compression_techniques_DCT_Deep_learning_image_classification.ipynb: DCT compression and CNN-based digit/object classification.
 - segmentation_detection_classification.ipynb: Advanced CV pipeline with edge/region segmentation, Hough transform, YOLO/R-CNN detection, and Fashion-MNIST/CIFAR-100 classification.
+- blob_detection_image_enhancement_classification.ipynb: Blob detection algorithms (LoG, DoG, DoH), comprehensive image enhancement techniques, and transfer learning with AlexNet/VGG16 on CIFAR-100.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -160,3 +162,36 @@ pip install -r requirements.txt
   - Classification reports with precision, recall, and F1-scores
 - **Integrated Pipeline**: End-to-end processing workflow combining segmentation, detection, and classification
 - **Dual Environment Support**: Compatible with both local (matplotlib) and Google Colab (cv2_imshow) environments
+
+## Notebook: Blob Detection, Image Enhancement & Classification
+- File: blob_detection_image_enhancement_classification.ipynb
+- **Blob Detection Algorithms**: Implementation of three advanced blob detection methods
+  - **LoG (Laplacian of Gaussian)**: Scale-space blob detection with adjustable sigma parameters
+  - **DoG (Difference of Gaussian)**: Efficient approximation of LoG for faster computation
+  - **DoH (Determinant of Hessian)**: Hessian matrix-based blob detection for feature localization
+  - Purple region extraction using HSV color masking
+  - Morphological preprocessing pipeline (erosion, dilation, opening, closing, area operations)
+  - Handles RGBA images with alpha channel conversion
+  - Red circle overlay visualization of detected blobs
+- **Image Enhancement Pipeline**: Eight comprehensive image processing techniques
+  - Brightness & Contrast adjustment with alpha/beta parameters
+  - Image sharpening using custom convolution kernels
+  - Denoising with Non-Local Means algorithm
+  - Color enhancement using PIL ImageEnhance
+  - Image resizing with interpolation
+  - Inverse transform (bitwise NOT operation)
+  - Histogram equalization (grayscale and color via YCrCb)
+  - LAB color space-based color correction
+  - Grid visualization (3×3 layout) of all enhancement results
+- **Transfer Learning Classification**: CIFAR-100 fine-grained classification
+  - **AlexNet**: Pre-trained on ImageNet, fine-tuned for 100 classes
+  - **VGG16**: Deep architecture with 16 layers, adapted for CIFAR-100
+  - Modified final classifier layers for 100-class output
+  - SGD optimizer with momentum (lr=0.0001, momentum=0.9)
+  - Cross-entropy loss function
+  - Training loop with tqdm progress bars
+  - Batch size optimized for memory efficiency (batch_size=16)
+  - Automatic device selection (CUDA/MPS/CPU)
+  - ImageNet normalization for transfer learning compatibility
+- **Model Evaluation**: Comprehensive accuracy metrics on CIFAR-100 test set
+- **Multi-Image Processing**: Batch processing across multiple test images (p1.jpg, p2.jpg, p3.png, p4.png, p5.jpg)
