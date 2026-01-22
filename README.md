@@ -14,6 +14,7 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Image Compression & Deep Learning Classification ](#notebook-image-compression--deep-learning-classification)
 - [Notebook: Segmentation, Detection & Classification](#notebook-segmentation-detection--classification)
 - [Notebook: Blob Detection, Image Enhancement & Classification](#notebook-blob-detection-image-enhancement--classification)
+- [Notebook: SIFT, ORB, Watershed, ResNet & Few-Shot Learning](#notebook-sift-orb-watershed-resnet--few-shot-learning)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -72,6 +73,7 @@ pip install -r requirements.txt
 - image_compression_techniques_DCT_Deep_learning_image_classification.ipynb: DCT compression and CNN-based digit/object classification.
 - segmentation_detection_classification.ipynb: Advanced CV pipeline with edge/region segmentation, Hough transform, YOLO/R-CNN detection, and Fashion-MNIST/CIFAR-100 classification.
 - blob_detection_image_enhancement_classification.ipynb: Blob detection algorithms (LoG, DoG, DoH), comprehensive image enhancement techniques, and transfer learning with AlexNet/VGG16 on CIFAR-100.
+- sift_orb_watershed_resnet_few_shot_learning.ipynb: Feature detection (SIFT, ORB), feature matching (BFMatcher), watershed segmentation, ResNet-18/34 classification on CIFAR-100, and few-shot/one-shot learning with elastic deformation augmentation.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -195,3 +197,58 @@ pip install -r requirements.txt
   - ImageNet normalization for transfer learning compatibility
 - **Model Evaluation**: Comprehensive accuracy metrics on CIFAR-100 test set
 - **Multi-Image Processing**: Batch processing across multiple test images (p1.jpg, p2.jpg, p3.png, p4.png, p5.jpg)
+
+## Notebook: SIFT, ORB, Watershed, ResNet & Few-Shot Learning
+- File: sift_orb_watershed_resnet_few_shot_learning.ipynb
+- **Feature Detection & Description**: Classical computer vision feature extraction
+  - **SIFT (Scale-Invariant Feature Transform)**: Keypoint detection and descriptor computation
+  - **ORB (Oriented FAST and Rotated BRIEF)**: Fast binary descriptor for real-time applications
+  - Rich keypoint visualization with OpenCV drawing flags
+  - Multiple test images for robustness evaluation
+- **Feature Matching**: Correspondence finding between image pairs
+  - **BFMatcher (Brute-Force Matcher)**: Exhaustive descriptor matching
+  - Hamming distance for ORB binary descriptors
+  - L2 distance for SIFT float descriptors
+  - Cross-check validation for bidirectional matching
+  - Top-50 matches visualization with distance-based sorting
+- **Watershed Segmentation**: Marker-based region segmentation
+  - Binary thresholding (THRESH_BINARY_INV) for preprocessing
+  - Custom marker seeds for background/foreground separation
+  - Watershed algorithm with boundary highlighting (red contours)
+  - Contour detection with RETR_EXTERNAL mode
+  - Multi-stage visualization (original → watershed → contours)
+- **Deep Learning Classification**: CIFAR-100 fine-grained recognition
+  - **ResNet-18**: Residual network with 18 layers (ImageNet pre-trained)
+  - **ResNet-34**: Deeper 34-layer residual architecture
+  - Transfer learning with modified final FC layer (100 classes)
+  - SGD optimizer with momentum (lr=0.0001, momentum=0.9)
+  - Cross-entropy loss with 5-epoch training
+  - ImageNet normalization (mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+  - Training progress tracking with tqdm progress bars
+  - GPU/CPU automatic device selection
+- **Few-Shot Learning**: Meta-learning for low-data scenarios
+  - **Prototypical Networks**: Metric learning with prototype computation
+    - Simple FC encoder (784→256→64 dimensions)
+    - Episode-based sampling (5-way, 5-shot setup)
+    - Euclidean distance metric in embedding space
+  - **MNIST Dataset** with 80/20 train/test split
+  - Elastic deformation augmentation for data diversity
+- **One-Shot Learning**: Siamese network for similarity learning
+  - **Siamese CNN**: Twin network architecture for pair comparison
+    - Convolutional feature extractor (Conv2D→ReLU→MaxPool2D×2)
+    - Fully connected similarity head (128×4×4→256→128)
+    - Pairwise distance computation with L2 norm
+  - Proper tensor flattening for CNN-to-FC transition
+- **Elastic Transform Augmentation**: Advanced data augmentation
+  - **Corrected Implementation**: Gaussian-smoothed displacement fields
+  - Alpha scaling for deformation magnitude control
+  - Sigma parameter for smoothness adjustment
+  - scipy.ndimage.gaussian_filter for proper elastic deformation
+  - cv2.remap with bilinear interpolation and reflection borders
+  - Side-by-side visualization of original vs. deformed images
+- **Model Evaluation Metrics**: Comprehensive performance analysis
+  - Accuracy, Precision, Recall, F1-score from sklearn.metrics
+  - Weighted averaging for multi-class scenarios
+  - Custom Siamese evaluation with pairwise similarity threshold
+  - Confusion matrix support for detailed error analysis
+- **Dual Mode Support**: Compatible with local and Colab environments
