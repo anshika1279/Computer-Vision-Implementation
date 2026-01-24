@@ -15,6 +15,8 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Segmentation, Detection & Classification](#notebook-segmentation-detection--classification)
 - [Notebook: Blob Detection, Image Enhancement & Classification](#notebook-blob-detection-image-enhancement--classification)
 - [Notebook: SIFT, ORB, Watershed, ResNet & Few-Shot Learning](#notebook-sift-orb-watershed-resnet--few-shot-learning)
+- [Notebook: Stitching, Denoising, GANs & Segmentation Playground](#notebook-stitching-denoising-gans--segmentation-playground)
+- [Notebook Rendering Tips](#notebook-rendering-tips)
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -63,6 +65,10 @@ cd Computer-Vision-Implementation
 pip install -r requirements.txt
 ```
 
+Key runtime dependencies include:
+- Notebook tooling: nbformat, nbconvert, notebook (for cleaning/fixing metadata)
+- CV/DL extras: timm (MobileNetV1), ultralytics, torch/torchvision, tensorflow
+
 ## Project Structure
 - README.md: Project overview and instructions.
 - requirements.txt: Python dependencies for all notebooks.
@@ -74,6 +80,7 @@ pip install -r requirements.txt
 - segmentation_detection_classification.ipynb: Advanced CV pipeline with edge/region segmentation, Hough transform, YOLO/R-CNN detection, and Fashion-MNIST/CIFAR-100 classification.
 - blob_detection_image_enhancement_classification.ipynb: Blob detection algorithms (LoG, DoG, DoH), comprehensive image enhancement techniques, and transfer learning with AlexNet/VGG16 on CIFAR-100.
 - sift_orb_watershed_resnet_few_shot_learning.ipynb: Feature detection (SIFT, ORB), feature matching (BFMatcher), watershed segmentation, ResNet-18/34 classification on CIFAR-100, and few-shot/one-shot learning with elastic deformation augmentation.
+- Stitching_Denoising_GAN_SegmentationPlayground.ipynb: Colab-ready playground covering image stitching (simple/panorama/ORB + pose), inpainting, MNIST denoising autoencoders, GANs (MNIST, CIFAR-10), MobileNet V1/V2/V3 fine-tuning, and notebook metadata fixes for GitHub rendering.
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -252,3 +259,13 @@ pip install -r requirements.txt
   - Custom Siamese evaluation with pairwise similarity threshold
   - Confusion matrix support for detailed error analysis
 - **Dual Mode Support**: Compatible with local and Colab environments
+
+## Notebook: Stitching, Denoising, GANs & Segmentation Playground
+- File: Stitching_Denoising_GAN_SegmentationPlayground.ipynb
+- **Image Stitching**: Simple and panorama modes using OpenCV Stitcher; ORB-based matching with essential matrix pose recovery; visualization of keypoints and matches.
+- **Inpainting**: Mask-based OpenCV inpainting helper for quick cleanup of noisy regions.
+- **Denoising Autoencoders (MNIST)**: Two variants (basic and improved with BN/Dropout) for noise+blur restoration; PSNR/SSIM metrics and pixel-wise accuracy.
+- **GANs**: MNIST MLP GAN and CIFAR-10 DCGAN with loss plots and image grid visualization utilities.
+- **Transfer Learning**: MobileNet V1/V2/V3 comparison for dog-breed classification (timm/models), with frozen backbone and classifier fine-tuning.
+- **Utilities**: Notebook metadata cleaning snippets (nbformat) to keep GitHub rendering healthy; Colab upload helpers for stitching inputs.
+
