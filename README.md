@@ -16,7 +16,8 @@ A comprehensive implementation of advanced computer vision techniques and video 
 - [Notebook: Blob Detection, Image Enhancement & Classification](#notebook-blob-detection-image-enhancement--classification)
 - [Notebook: SIFT, ORB, Watershed, ResNet & Few-Shot Learning](#notebook-sift-orb-watershed-resnet--few-shot-learning)
 - [Notebook: Stitching, Denoising, GANs & Segmentation Playground](#notebook-stitching-denoising-gans--segmentation-playground)
-- [Notebook Rendering Tips](#notebook-rendering-tips)
+- [Notebook: Image Denoising & Video Action Pipeline](#notebook-image-denoising--video-action-pipeline)
+
 
 ## Overview
 This repository contains implementations of advanced computer vision algorithms and video analytics techniques including:
@@ -81,6 +82,7 @@ Key runtime dependencies include:
 - blob_detection_image_enhancement_classification.ipynb: Blob detection algorithms (LoG, DoG, DoH), comprehensive image enhancement techniques, and transfer learning with AlexNet/VGG16 on CIFAR-100.
 - sift_orb_watershed_resnet_few_shot_learning.ipynb: Feature detection (SIFT, ORB), feature matching (BFMatcher), watershed segmentation, ResNet-18/34 classification on CIFAR-100, and few-shot/one-shot learning with elastic deformation augmentation.
 - Stitching_Denoising_GAN_SegmentationPlayground.ipynb: Colab-ready playground covering image stitching (simple/panorama/ORB + pose), inpainting, MNIST denoising autoencoders, GANs (MNIST, CIFAR-10), MobileNet V1/V2/V3 fine-tuning, and notebook metadata fixes for GitHub rendering.
+- Image_Denoising_Video_Action_Pipeline.ipynb: Image denoising comparison (Median, Wavelet, Noise2Void U-Net) and video action recognition pipeline (frame extraction, video processing, UCF101 subset with 3D CNN classification).
 
 ## Modules & Implementations
 - Image resizing with multiple interpolation methods and blurring with box, Gaussian, and bilateral filters.
@@ -268,4 +270,23 @@ Key runtime dependencies include:
 - **GANs**: MNIST MLP GAN and CIFAR-10 DCGAN with loss plots and image grid visualization utilities.
 - **Transfer Learning**: MobileNet V1/V2/V3 comparison for dog-breed classification (timm/models), with frozen backbone and classifier fine-tuning.
 - **Utilities**: Notebook metadata cleaning snippets (nbformat) to keep GitHub rendering healthy; Colab upload helpers for stitching inputs.
+
+## Notebook: Image Denoising & Video Action Pipeline
+- File: Image_Denoising_Video_Action_Pipeline.ipynb
+- **Task 1: Image Denoising Comparison**
+  - **Median Filter Denoising**: Channel-wise morphological filtering with disk-shaped structuring elements (size=3), RGB channel processing, PSNR/SSIM/MSE metrics, matplotlib visualization
+  - **Wavelet Denoising**: BayesShrink soft thresholding in wavelet domain, adaptive sigma rescaling, per-channel decomposition/reconstruction, quality metrics comparison
+  - **Deep Learning Denoising**: Noise2Void-inspired U-Net (Conv2D→MaxPooling→UpSampling), self-supervised patch training (64×64), center pixel masking strategy, 10-epoch training
+  - **Multi-Method Comparison**: Quantitative metrics (MSE, PSNR, SSIM) and visual side-by-side evaluation
+- **Task 2: Video Processing & Action Recognition**
+  - **Frame Extraction**: Configurable interval sampling, sequential frame storage, progress tracking
+  - **Frame Visualization**: 2×5 grid display with BGR→RGB conversion
+  - **Video Operations**: Adaptive thresholding (GAUSSIAN_C), Gaussian blur (5×5), Canny edges (100/200), bitwise NOT inversion
+  - **Frame Collage**: Grid-based spatial sampling, adaptive sizing, half-resolution assembly
+  - **UCF101 Dataset**: 5-class subset (Basketball, Biking, PlayingGuitar, Typing, JumpRope), 10 videos/class, 224×224 frames, 16-frame sequences
+  - **3D CNN Classification**: 3-layer Conv3D (64→128→256 filters), batch normalization, 2×2×2 max pooling, 512-unit FC + 50% dropout, L2 regularization
+  - **Training Pipeline**: Data augmentation (±30° rotation/shifts/shear/zoom, horizontal flip), class weight balancing, Adam optimizer (lr=0.0001), 100 epochs, ModelCheckpoint callback
+  - **Evaluation**: Test accuracy, per-class precision/recall/F1, confusion matrix, training/validation curves
+- **Dependencies**: PyWavelets, TensorFlow/Keras, scikit-learn, OpenCV, matplotlib
+- **Colab Ready**: Full environment setup with pip installations
 
